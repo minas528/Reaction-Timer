@@ -1,0 +1,30 @@
+<template>
+  <h3>Reaction Time {{ score }} ms</h3>
+  <h6 class="rank">Rank: {{ rank }}</h6>
+</template>
+
+<script>
+export default {
+  props: ["score"],
+  data() {
+    return { rank: null };
+  },
+  mounted() {
+    if (this.score < 250) {
+      this.rank = "Ninja Fingers";
+    } else if (this.score < 400) {
+      this.rank = "Rapid Reflexes";
+    } else {
+      this.rank = "Snail pace...";
+    }
+  },
+};
+</script>
+
+<style>
+.rank {
+  font-size: 1.4em;
+  color: #0faf87;
+  font-weight: bold;
+}
+</style>
